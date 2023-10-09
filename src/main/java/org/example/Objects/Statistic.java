@@ -57,6 +57,13 @@ public class Statistic {
         return wrong;
     }
 
+    /**
+     * @return returns the amount of rounds played
+     */
+    public int getRoundsPlayed() {
+        return this.right + this.wrong;
+    }
+
     public double average() {
         return (this.right - this.wrong) / (this.right + this.wrong);
     }
