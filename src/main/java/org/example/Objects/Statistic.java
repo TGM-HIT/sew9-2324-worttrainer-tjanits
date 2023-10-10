@@ -81,6 +81,4 @@ public class Statistic {
         strB.append("Average Score: " + this.average());
         return strB.toString();
     }
-
-    //TODO - save stats
 }

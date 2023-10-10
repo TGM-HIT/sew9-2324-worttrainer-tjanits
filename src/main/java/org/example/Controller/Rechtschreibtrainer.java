@@ -75,7 +75,12 @@ public class Rechtschreibtrainer {
                 this.displayQuiz(asset);
             }
 
-            if()
+            if(this.isStringInt(userInput)) {
+                int index = Integer.parseInt(userInput);
+                TrainingAsset asset = this.assets.get(index);
+
+                this.displayQuiz(asset);
+            }
         }
     }
 
@@ -89,6 +94,19 @@ public class Rechtschreibtrainer {
             this.stats.addWrongAnswer();
             JOptionPane.showMessageDialog(null,"Leider falsch. Probiers nochmal...");
             displayQuiz(asset);
+        }
+    }
+
+    private boolean saveProgressAsFile() {
+
+    }
+
+    public boolean isStringInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
         }
     }
 
