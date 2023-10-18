@@ -2,6 +2,8 @@ package org.example.Controller;
 
 import org.example.Objects.Statistic;
 import org.example.Objects.TrainingAsset;
+import org.example.SaveAndLoad.JsonIO;
+import org.example.SaveAndLoad.SaveAndLoad;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -58,7 +60,7 @@ public class Rechtschreibtrainer {
             }
 
             if(userInput.equals("end")) {
-                if(this.stats.saveAsFile()) {
+                if(this.saveProgressAsFile()) {
                     JOptionPane.showMessageDialog(null, "Spiel wurde beendet, Spielstand gespeichert!");
                     return true;
                 } else {
@@ -98,7 +100,11 @@ public class Rechtschreibtrainer {
     }
 
     private boolean saveProgressAsFile() {
-
+        SaveAndLoad serializer = new JsonIO();
+        if(serializer.saveStatsAsFile(this)) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isStringInt(String s) {
