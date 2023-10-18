@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Rechtschreibtrainer {
-    private ArrayList<TrainingAsset> assets;
-    private Statistic stats;
+    private final ArrayList<TrainingAsset> assets;
+    private final Statistic stats;
 
     /**
      * constructor method
@@ -26,7 +26,7 @@ public class Rechtschreibtrainer {
      * Allows the Player to add a new asset to the array
      */
     public void addAsset() {
-        boolean check = false;
+        boolean check;
         do {
             String imageURL = JOptionPane.showInputDialog("Provide the link to the image of your new word:");
             String word;
@@ -43,7 +43,7 @@ public class Rechtschreibtrainer {
             } else {
                 check = false;
             }
-        } while (check == false);
+        } while (!check);
     }
 
     public boolean play() {
@@ -101,7 +101,8 @@ public class Rechtschreibtrainer {
 
     private boolean saveProgressAsFile() {
         SaveAndLoad serializer = new JsonIO();
-        if(serializer.saveStatsAsFile(this)) {
+        boolean test = serializer.saveStatsAsFile(this);
+        if(test) {
             return true;
         }
         return false;
