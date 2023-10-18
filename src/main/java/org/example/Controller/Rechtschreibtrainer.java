@@ -49,8 +49,8 @@ public class Rechtschreibtrainer {
     public boolean play() {
         while(true) {
             StringBuilder stB = new StringBuilder();
-            stB.append("Gib den Nummer des Wortes ein mit dem du starten möchtest oder schreibe 'z' um ein zufälliges Wort zu wählen.");
-            stB.append("\nMit 'reset' kannst du deinen aktuellen Spielstand zurücksetzen.");
+            stB.append("Gib den Nummer des Wortes ein mit dem du starten moechtest oder schreibe 'z' um ein zufaelliges Wort zu waehlen.");
+            stB.append("\nMit 'reset' kannst du deinen aktuellen Spielstand zuruecksetzen.");
             stB.append("\nUm das Spiel zu beenden schreibe 'end'.");
             String userInput = JOptionPane.showInputDialog(stB.toString());
 
